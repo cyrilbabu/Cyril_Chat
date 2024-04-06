@@ -1,0 +1,24 @@
+
+<form method="POST" class="" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label class="" for="">Username</label>
+    <div class=""> {{ user_form.username }} </div>
+
+    <label class="" for="">First Name</label>
+    <div class=""> {{ user_form.first_name }}</div>
+
+    <label class="" for="">Last Name</label>
+    <div class=""> {{ user_form.last_name }} </div>
+
+    <label class="" for="">Email</label>
+    <div class=""> {{ user_form.email }}</div>
+
+    <label class="" for="">Profile Photo</label>
+    <div class=""> {{ profile_form.profilePhoto }}</div>
+
+    <label class="" for="">Background Photo</label>
+    <div class=""> {{ profile_form.backgroundPhoto }}</div>
+
+    <button class="" type="submit">Save</button>
+</form>
+

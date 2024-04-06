@@ -1,0 +1,48 @@
+{% extends 'chat/base.html' %}
+{% load static %}
+
+{% block body %}
+
+ 
+
+{% comment %} -------------------------------navbar----------------------- {% endcomment %}
+
+<div class="container">
+
+<div class="pt-4">
+<div>  
+
+<form class="d-flex pt-4 pb-1 px-5 pt-5" role="search">
+      <input class="form-control me-2 border border-dark border-3" name='user_name' type="search" placeholder="Search For User" aria-label="Search" style="box-shadow: 5px 5px 5px #4d4d4d; ">
+      <button class="btn btn-success d-flex border border-dark border-3" type="submit" style="box-shadow: 5px 5px 5px #4d4d4d;"><text style="text-shadow: 2px 2px 2px #737373; font-weight: 700;">Search </text> <i class="bi bi-search px-1"></i>  </button>
+</form>
+
+{% for user in users %}
+
+<div class="container px-5">
+  <div class="card bg-dark text-white my-4 mt-3 card-div" style="width: 100%; height: 120px; overflow: hidden; position: relative; box-shadow: 5px 5px 5px #4d4d4d;">
+    <img style="opacity:0.2; width: 100%; height: auto; display: block; filter: brightness(200%);" class="card-img" src="{{ user.profile.backgroundPhoto.url }}" alt="">
+    <div class="card-img-overlay">
+      <div class="row">
+          <div class="col-4 col-sm-3 col-md-2 col-lg-1 d-flex justify-content-center">
+            <div>
+              <img style="width: 85px; height: 85px; border-radius: 50%; border-style: solid; border-width: 3px; border-color: #a6a6a6;" class="mx-2 p-1"  src="{{ user.profile.profilePhoto.url }}" alt="Card image cap">
+            </div> 
+          </div>
+          <div class="col-8 col-sm-7 col-md-8 col-lg-9">
+              <h5 class="card-title px-1 py-2"  style="color: #e6e6e6; text-shadow: 2px 2px 2px #737373; font-weight: 800;">{{ user.username }}</h5>
+              <a class="py-1" href="/chat/{{user.id}}"> <button class="btn btn-info btn-sm" type="submit">Chat <i class="bi bi-chat-left-dots"></i></button> </a>
+              <a href="/chat/profile/{{user.id}}"> <button class="btn btn-outline-light btn-sm" type="submit">View Profile <i class="bi bi-person-lines-fill"></i></button> </a>
+          </div>   
+      </div>        
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+
+
+
+
+</div>
+{% endblock %}

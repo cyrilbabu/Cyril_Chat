@@ -1,0 +1,24 @@
+
+
+<form method="POST" class="">
+    {% csrf_token %}
+    <label class="" for="">Email</label>
+    <div class=""> {{ user_form.email }}</div>
+
+    <label class="" for="">Username</label>
+    <div class=""> {{ user_form.username }}</div>
+
+    <label class="" for="">First Name</label>
+    <div class=""> {{ user_form.first_name }}</div>
+
+    <label class="" for="">Last Name</label>
+    <div class=""> {{ user_form.last_name }}</div>
+
+    <label class="" for="">Password</label>
+    <div class=""> {{ user_form.password  }}</div>
+
+    <label class="" for="">Type Your Password Again</label>
+    <div class=""> {{ user_form.password2 }}</div>
+
+    <button class="" type="submit">Register</button>
+</form>

@@ -1,0 +1,38 @@
+{% extends 'chat/base.html' %}
+{% load static %}
+
+{% block body %}
+
+<div class="py-4"> 
+</div>  
+<div class="py-2"> 
+</div> 
+
+<div class="container px-2 py-2 border border-3 border-dark">
+  <div class="card bg-dark text-white" style="width: 100%; height: 200px; overflow: hidden; position: relative; box-shadow: 0px 5px 10px #4d4d4d;">
+    <img style="opacity:0.3; width: 100%; height: auto; display: block; filter: brightness(200%);" class="card-img" src="{{ current_user.profile.backgroundPhoto.url }}" alt="">       
+    </div>
+
+
+<div class="row py-4 mx-5 my-3 boder border-3 border-dark" style="background-image: url({% static 'chat/images/back5.png' %}); box-shadow: 0px 5px 5px #4d4d4d;">
+    <div class="col-md-3 col-lg-3 col-12 d-flex justify-content-center">
+              <img style="width: 200px; height: 200px; border-radius: 50%; border-style: solid; border-width: 4px; border-color: #000000;" class="mx-2 my-3 p-1"  src="{{ current_user.profile.profilePhoto.url }}">
+    </div>
+    <div class="col-9" style="background: transparent;">
+        <ul class="list-group boder border-0" style="background: transparent;">
+        <li class="list-group-item boder border-0" style="background: transparent;"><h3 style="text-shadow: 1px 1px 1px #737373; font-weight: 800;"><i class="bi bi-person-heart"></i> : {{ current_user.username }}</h3></li>
+        <li class="list-group-item boder border-0" style="background: transparent;"><h3 style="text-shadow: 1px 1px 1px #737373; font-weight: 800;"><i class="bi bi-person-square"></i> : {{ current_user.first_name }} {{ users.last_name }}</h3></li>
+        <li class="list-group-item boder border-0" style="background: transparent;"><h3 style="text-shadow: 1px 1px 1px #737373; font-weight: 800;"><i class="bi bi-envelope"></i> : {{ current_user.email }}</h3></li>
+        <li class="list-group-item boder border-0" style="background: transparent;"><a href="/users/edit/"> <button class="btn btn-info btn-lg border-dark border-2 border" type="submit">Edit <i class="bi bi-pencil-square"></i></button> </a></li>
+        </ul>    
+    </div>
+</div> 
+
+
+
+
+{% endblock %}
+
+
+
+

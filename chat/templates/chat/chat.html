@@ -1,0 +1,67 @@
+{% extends 'chat/base.html' %}
+
+{% block body %}
+
+<div class="py-4"> 
+</div>  
+<div class="py-2"> 
+</div>   
+
+<div class="container px-2 py-1 border border-3 border-dark" style="background-color: rgba(0, 0, 0, 0.4); height:615px; overflow-y: auto; position: relative;" >
+  <div class="card bg-dark text-white" style="width: 100%; height: 130px; overflow: hidden; position: relative; box-shadow: 0px 5px 5px #4d4d4d;">
+    <img style="opacity:0.2; width: 100%; height: auto; display: block; filter: brightness(150%);" class="card-img" src="{{ user.profile.backgroundPhoto.url }}" alt="">
+    <div class="card-img-overlay">
+      <div class="row">
+          <div class="col-5 col-sm-2 col-md-2 col-lg-2 d-flex justify-content-center">
+            <div>
+              <img style="width: 100px; height: 100px; border-radius: 50%; border-style: solid; border-width: 3px; border-color: #a6a6a6;" class="mx-2 p-1"  src="{{ user.profile.profilePhoto.url }}" alt="Card image cap">
+            </div> 
+          </div>
+          <div class="col-7">
+              <h1 class="card-title pt-5">{{ user.username }}</h1>
+          </div>   
+      </div>        
+    </div>
+  </div>
+
+
+<ul class="list-group border-0" style="background: transparent;">
+    <div class="container" style="background: transparent; ">
+    {% for message in all_messages %}
+        {% if  message.message_by  ==  current_user  %}
+        
+            <li class="list-group-item border-0 px-4 d-flex justify-content-end" style="background: transparent;">
+                <div class="btn btn-primary btn-sm border border-2 border-dark">
+                    <text style="font-weight: 600; font-size: 17px;">{{ message.message }} </text>
+                </div> 
+            </li>
+        {% else %}
+            <li class="list-group-item border-0 px-4 d-flex" style="background: transparent;">
+                <div class="btn btn-dark btn-sm border border-2 border-dark" style="opacity: 1;">
+                    <text style="font-weight: 600; font-size: 17px;">{{ message.message }} </text>
+                </div> 
+            </li>
+        {% endif %}
+    {% endfor %} 
+
+    
+ 
+
+
+<div class="fixed-bottom p-3">
+    <div class="container">
+        <form method="POST" class="d-flex">
+            {% csrf_token %}
+            <input class="form-control  mx-3 border border-2 border-dark" id="message-input" type="text" name="message" placeholder="Enter message" style="box-shadow: 0px 5px 5px #4d4d4d;">
+            <button class="btn btn-success d-flex me-3 border border-2 border-dark" type="submit" style="box-shadow: 0px 5px 5px #4d4d4d;">Send<i class="bi bi-send"></i></button>
+        </form>
+    </div>
+</div>
+
+    
+</ul>
+
+</div>
+
+
+{% endblock %}

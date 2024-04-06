@@ -1,0 +1,12 @@
+
+<form method="POST" class="">
+    {% csrf_token %}
+    <label class="" for="">Username</label>
+    <div class=""> {{ form.username }}</div>
+
+    <label class="" for="">Password</label>
+    <div class=""> {{ form.password  }}</div>
+
+    <button class="" type="submit">Login</button>
+</form>
+
